@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Pavillion</title>
+    <link rel="stylesheet" href="~/css/app.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <partial name="_Fonts" />
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-primary z-2 d-flex flex-md-column">
+            <partial name="_NavigationBar" />
+        </nav>
+    </header>
+
+    <div class="container-fluid p-0">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="d-flex border-top text-muted bg-primary justify-content-center align-items-center">
+        <p class="m-0 my-2 my-md-3 text-white">&copy; @DateTime.Now.Year - Ramon Alvarez</p>
+        <a href="https://github.com/HeftyTie/Art-Pavillion" target="_blank">
+            <i class="mx-2 bi bi-github text-white"></i>
+        </a>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

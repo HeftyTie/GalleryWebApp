@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  artpavillion:
+    image: ${DOCKER_REGISTRY-}artpavillion
+    build:
+      context: .
+      dockerfile: ArtPavillion/Dockerfile
+    volumes:
+      - R:/Images:/app/wwwroot/images

@@ -2,9 +2,22 @@ version: '3.4'
 
 services:
   artpavillion:
+    container_name: artpavillion
     image: ${DOCKER_REGISTRY-}artpavillion
     build:
       context: .
       dockerfile: ArtPavillion/Dockerfile
     volumes:
       - R:/Images:/app/wwwroot/images
+  artpavillion-db:
+    image: postgres
+    container_name: artpavillion_db
+    environment:
+        - POSTGRES_DATABASE=artpavillion
+        - POSTGRES_USER=artpavillion
+        - POSTGRES_PASSWORD=artpavillion
+    ports:
+        - 5432:5432
+    volumes:
+        - R:/Databases:/data/db
+    restart: on-failure
